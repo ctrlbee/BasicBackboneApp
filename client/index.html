@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<body>
+    <script src="../bower_components/jquery/jquery.min.js"></script>
+    <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/backbone/backbone.js"></script>
+
+    <script src="data/data.js"></script>
+
+    <script src="models/SongModel.js"></script>
+    <script src="collections/SongCollection.js"></script>
+    <script src="models/SidebarModel.js"></script>
+    <script src="models/AppModel.js"></script>
+
+    <script src="views/LibraryView.js"></script>
+    <script src="views/TileView.js"></script>
+    <script src="views/SidebarView.js"></script>
+    <script src="views/AppView.js"></script>
+
+
+    <script>
+      $(function() {
+
+        var songs = new SongCollection(songData); 
+        var sidebar = new SidebarModel(); 
+        var appmodel = new AppModel({data: songs}); 
+
+        var appview = new AppView({model: appmodel}); 
+
+        $('body').append(appview.render()); 
+
+      });
+    </script>
+  </body>
+
+
+</html>
