@@ -1,5 +1,7 @@
 var SidebarView = Backbone.View.extend({
 
+  className: 'sidebar', 
+
   initialize: function(){
     this.$el.append("sidebar link artist"); 
     this.render(); 

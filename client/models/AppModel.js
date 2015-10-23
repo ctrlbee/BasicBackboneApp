@@ -5,13 +5,14 @@ var AppModel = Backbone.Model.extend({
     this.set('library', new SongCollection()); 
     this.set('sidebardata', new SidebarModel()); 
 
-    this.on('viewchange', function(){
-      console.log('in app model view change')
-    })
+    //ALSO WORKS!!!
+    // this.get('sidebardata').on('viewchange', function(){
+    //     console.log('in app model view change')
+    // });
 
-    // params.sidebar.on('viewchange', function(){
-    //   console.log('in app model view change')
-    // })
+    this.listenTo(this.get('sidebardata'), 'viewchange', function(){
+      console.log('in app model view change')
+    });
 
   }
 
